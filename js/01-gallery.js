@@ -22,33 +22,7 @@ function galleryItemsMarkup(items) {
   return contentMarkup.join("");
 }
 
-// 1. Create modal basicLightbox
-
 listGallery.addEventListener("click", openDelegationImages);
-
-// function openDelegationImages(event) {
-//   event.preventDefault();
-//   if (event.target.nodeName !== "IMG") return;
-
-//   const instance = basicLightbox.create(
-//     `
-//     <img  
-//     src="${event.target.dataset.source}"
-//     width="1280" 
-//     height="auto"
-//   />
-// `,
-//     {
-//       onShow: (instance) => {
-//         instance.element().querySelector("img").onclick = instance.close;
-//       },
-//     }
-//   );
-
-//   instance.show();
-// }
-
-// 2. Create modal basicLightbox with close Escape
 
 function openDelegationImages(event) {
   event.preventDefault();
@@ -60,19 +34,19 @@ function openDelegationImages(event) {
         `,
     {
       onShow: (instance) => {
-        window.addEventListener('keydown', onEscKeyPress);
+        window.addEventListener("keydown", onEscKeyPress);
       },
       onClose: (instance) => {
-        window.removeEventListener('keydown', onEscKeyPress);
+        window.removeEventListener("keydown", onEscKeyPress);
       },
     }
   );
   instance.show();
 
   function onEscKeyPress(event) {
-  if (event.code !== 'Escape') return;
-  instance.close();
-}
+    if (event.code !== "Escape") return;
+    instance.close();
+  }
 }
 
 console.log(galleryItems);

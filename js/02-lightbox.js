@@ -26,11 +26,4 @@ const lightbox = new SimpleLightbox(".gallery__link", {
   captionDelay: 250,
 });
 
-document.addEventListener("keydown", closeGallery);
-
-function closeGallery(event) {
-  if (event.code !== "Escape") return;
-  lightbox.close();
-}
-
 console.log(galleryItems);
